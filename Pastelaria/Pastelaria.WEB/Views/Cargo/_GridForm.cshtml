@@ -1,0 +1,24 @@
+﻿@model Pastelaria.WEB.Application.Cargo.Model.CargoModel
+@{ Layout = null;}
+
+
+<div class="form-group" id="cadastrocargo">
+    <form id="cargo" onsubmit="cargo.post(this); return false;">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Cargo</label>
+            <input type="text" class="form-control" id="cargo">
+
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar Cargo</button>
+    </form>
+</div>
+
+<script src="~/Lib/FormCadastro.js?d=@DateTime.Now.Ticks"></script>
+<script>
+    cargo.init({
+        urls: {
+            
+            index: '@Url.Action("Index", "Cargo")'
+        }
+    });
+</script>

@@ -1,0 +1,27 @@
+﻿@model Pastelaria.WEB.Application.Cargo.Model.CargoModel
+@{ Layout = null;}
+
+
+<div class="form-group">
+    <form  onsubmit="cargo.putCargo(this); return false;">
+        <div class="form-group">
+            <label >Cargo</label>
+            <input type="hidden" class="form-control" name="Num_Cargo" id="Num_Cargo" value="@Model.Num_Cargo">
+            <input type="text" class="form-control" name="Nome_Cargo" id="Nome_Cargo" value="@Model.Nome_Cargo">
+
+        </div>
+        <button type="submit" class="btn btn-primary">Atualizar</button>
+    </form>
+</div>
+
+<script src="~/Lib/Cargo.js?d=@DateTime.Now.Ticks"></script>
+<script>
+    cargo.init({
+        urls: {
+              index: '@Url.Action("GetCargos", "Cargo")',
+              putCargo: '@Url.Action("PutCargo", "Cargo")',
+              postCargo: '@Url.Action("PostCargo", "Cargo")'
+        }
+
+    });
+</script>

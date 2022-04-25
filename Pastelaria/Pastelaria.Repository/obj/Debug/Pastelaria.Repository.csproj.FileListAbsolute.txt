@@ -1,0 +1,7 @@
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.Repository\bin\Debug\Pastelaria.Repository.dll
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.Repository\bin\Debug\Pastelaria.Repository.pdb
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.Repository\bin\Debug\Pastelaria.Domain.dll
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.Repository\bin\Debug\Pastelaria.Domain.pdb
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.Repository\obj\Debug\Pastelaria.Repository.csprojResolveAssemblyReference.cache
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.Repository\obj\Debug\Pastelaria.Repository.dll
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.Repository\obj\Debug\Pastelaria.Repository.pdb

@@ -1,0 +1,13 @@
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.WEB.Application\bin\Debug\Pastelaria.WEB.Application.dll
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.WEB.Application\bin\Debug\Pastelaria.WEB.Application.pdb
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.WEB.Application\bin\Debug\Newtonsoft.Json.dll
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.WEB.Application\bin\Debug\System.Net.Http.dll
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.WEB.Application\bin\Debug\System.Net.Http.Extensions.dll
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.WEB.Application\bin\Debug\System.Net.Http.Formatting.dll
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.WEB.Application\bin\Debug\System.Net.Http.Primitives.dll
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.WEB.Application\bin\Debug\System.Net.Http.WebRequest.dll
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.WEB.Application\bin\Debug\System.Net.Http.xml
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.WEB.Application\bin\Debug\System.Net.Http.WebRequest.xml
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.WEB.Application\obj\Debug\Pastelaria.WEB.Application.csprojResolveAssemblyReference.cache
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.WEB.Application\obj\Debug\Pastelaria.WEB.Application.dll
+C:\ProjetoCRUD\Pastelaria\Pastelaria\Pastelaria.WEB.Application\obj\Debug\Pastelaria.WEB.Application.pdb

@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Pastelaria.WEB.Application.Usuario.Model.UsuarioModel>
+@{
+    ViewBag.Title = "../Shared/_Layout.cshtml";
+}
+
+
+<div class="container" style="margin-top: 40px; padding: 0px;">
+    <div id="divDados">
+
+    </div>
+    <div class="col-lg-12" id="divtabela">
+        <table id="tabela" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cargo</th>
+                    <th>Celular</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>Data Nascimento</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                        <tr>
+                            <td>@item.Nome_Usuario</td>
+                            <td>@item.Nome_Cargo</td>
+                            <td>@item.Num_Celular</td>
+                            <td>@item.Num_TelFixo</td>
+                            <td>@item.Email_Usuario</td>
+                            <td>@item.Dat_Nascimento</td>
+
+                            <td style="display: flex;">
+                                <div class="col-sm-6"><button class="btn btn-primary btn-xs" onclick="editar(@item.Num_Usuario);"><i class="material-icons">&#xE254;</i></button></div>
+                                <div class="col-sm-6"><button class="btn btn-danger btn-xs" onclick="deleteUsuario(@item.Num_Usuario);"><i class="material-icons">&#xE872;</i></button></div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">nenhum registro encontrado</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+<script src="~/lib/ListaUsusario.js?d=@DateTime.Now.Ticks"></script>
+<script>
+
+    usuarios.init({
+        urls: {
+            putuser: '@Url.Action("PutUser", "Usuario")'
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function (e) {
+        $('#tabela').DataTable({
+            "stateSave": true,
+
+            "oLanguage": {
+                "sSearch": "Pesquisar",
+                "infoEmpty": "Nenhum resuldado encontrado!",
+                "sInfoEmpty": "exibindo 0 de 0 em 0 resultados",
+            }
+
+        }
+        );
+    });
+
+    function editar(e) {
+
+        $.get('@Url.Action("GerenciarUsuario")', {
+            id: e
+        }).success(function (data) {
+            $("#divtabela").hide();
+            $("#divDados").html(data);
+        })
+              .error(function (xhr) {
+                  console.log("erro");
+              });
+    }
+
+    function deleteUsuario(e) {
+        $.post('@Url.Action("DeleteUsuario")', {
+            id: e
+        }).success(function (data) {
+            location.reload();
+        })
+           .error(function (xhr) {
+               console.log("erro");
+           });
+    }
+
+
+
+</script>

@@ -1,0 +1,26 @@
+﻿
+@{ Layout = null;}
+
+
+<div class="form-group">
+    <form onsubmit="cargo.postCargo(this); return false;">
+        <div class="form-group">
+            <label>Cargo</label>
+          
+            <input type="text" class="form-control" name="Nome_Cargo" id="Nome_Cargo" value="">
+
+        </div>
+        <button type="submit" class="btn btn-success">Criar</button>
+    </form>
+</div>
+
+<script src="~/Lib/Cargo.js?d=@DateTime.Now.Ticks"></script>
+<script>
+    cargo.init({
+        urls: {
+            index: '@Url.Action("GetCargos", "Cargo")',
+            putCargo: '@Url.Action("PutCargo", "Cargo")',
+            postCargo: '@Url.Action("PostCargo", "Cargo")'
+        }
+    });
+</script>

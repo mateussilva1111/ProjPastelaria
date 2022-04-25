@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Pastelaria.WEB.Application.Tarefa.TarefaModel>
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="container" style="margin-top: 40px; padding: 0px;">
+    <div id="divDados">
+
+    </div>
+
+
+    <div class="col-lg-12" id="divtabela">
+        <table id="tabela" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+
+                    <th>codigo</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>status</th>
+                    <th>Data criação</th>
+                    <th>Data Atualização</th>
+                    <th>Data Finalização</th>
+                    <th>Gestor</th>
+                    <th>desenvolvedor</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                        <tr>
+                            <td>@item.Cod_Tarefa</td>
+                            <td>@item.Nom_Tarefa</td>
+                            <td>@item.Descr_Tarefa</td>
+                            <td>@item.Status_Tarefa</td>
+                            <td>@item.Dat_Rgistro</td>
+                            <td>@item.Dat_Atualizacao</td>
+                            <td>@item.Dat_Fim</td>
+                            <td>@item.Email_Gerente</td>
+                            <td>@item.Email_Funcionario</td>
+                            <td style="display: flex;">
+                                <button class="btn btn-success btn-group-sm" onclick="finalizar(@item.Num_Tarefa)">finalizar</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">nenhum registro encontrado</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (e) {
+        $('#tabela').DataTable({
+            "stateSave": true,
+
+            "oLanguage": {
+                "sSearch": "Pesquisar",
+                "sLengthMenu": "Exibir _MENU_ registros",
+                "infoEmpty": "Nenhum resuldado encontrado!",
+                "sInfoEmpty": "exibindo 0 de 0 em 0 resultados",
+            }
+
+        }
+        );
+    });
+
+
+    function finalizar(e) {
+
+        $.get('@Url.Action("FinalizaTarefa")', {
+            id: e
+        }).success(function (data) {
+            location.reload();
+        })
+          .error(function (xhr) {
+              console.log("erro");
+          });
+
+    }
+
+</script>
+

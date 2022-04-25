@@ -1,0 +1,85 @@
+﻿@model Pastelaria.WEB.Application.Usuario.Model.UsuarioModel
+
+@{
+    Layout = null;
+}
+
+<div class="container" style="margin-top:40px;">
+    <form onsubmit="usuarios.putUser(this); return false;" >
+
+        <div class="container">
+
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="hidden" value="@Model.Num_Usuario" name="Num_Usuario" class="form-control" required>
+                <input type="text" value="@Model.Nome_Usuario" name="Nome_Usuario" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>descrição</label>
+                <input value="@Model.Dat_Nascimento" name="Dat_Nascimento" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Telefone</label>
+                <input type="text" value="@Model.Num_TelFixo" name="Num_TelFixo" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Celular</label>
+                <input type="text" value="@Model.Num_Celular" name="Num_Celular" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>E-mail</label>
+                <input type="text" value="@Model.Email_Usuario" name="Email_Usuario" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Senha</label>
+                <input type="text" value="@Model.Senha_Usuario" name="Senha_Usuario" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Foto</label>
+                <input type="text" value="@Model.Foto_usuario" name="Foto_Usuario" class="form-control" required>
+            </div>
+           
+
+            <div class="form-group">
+                <label>Cargo</label>
+                <select class="form-control" name="Num_Cargo" id="Num_Cargo"></select>
+
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Atualizar</button>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+
+<script src="~/lib/ListaUsusario.js?d=@DateTime.Now.Ticks"></script>
+<script>
+    usuarios.init({
+        urls: {
+            putUser: '@Url.Action("Put", "Usuario")'
+        }
+    });
+
+
+    $(document).ready(function () {
+        var listItems = '<option selected="selected" value="0"> selecione</option>';
+        $.get('@Url.Action("GetCargosUser")').success(function (data) {
+
+            for (var i = 0; i < data.length; i++) {
+                listItems += "<option value='" + data[i].Num_Cargo + "'>" + data[i].Nome_Cargo + "</option>";
+                $("#Num_Cargo").html(listItems);
+              
+            }
+        }).error(function (xhr) {
+            console.log("erro");
+        });
+    });
+</script>

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Pastelaria.WEB.Application.Tarefa.TarefaModel>
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+<div class="bs-example">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Panel heading</div>
+
+        <!-- Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <span class="custom-checkbox">
+                            <input type="checkbox" id="selectAll">
+                            <label for="selectAll"></label>
+                        </span>
+                    </th>
+                    <th>codigo</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>status</th>
+                    <th>Data criação</th>
+                    <th>Data Atualização</th>
+                    <th>Data Finalização</th>
+                    <th>Gestor</th>
+                    <th>desenvolvedor</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.Cod_Tarefa</td>
+                        <td>@item.Nom_Tarefa</td>
+                        <td>@item.Descr_Tarefa</td>
+                        <td>@item.Status_Tarefa</td>
+                        <td>@item.Dat_Rgistro</td>
+                        <td>@item.Dat_Atualizacao</td>
+                        <td>@item.Dat_Fim</td>
+                        <td>@item.Email_Gerente</td>
+                        <td>@item.Email_Gerente</td>
+                        <td>
+                            <a class="btn btn-success btn-xs">Finalizar</a>
+                        </td>
+                    </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="~/Lib/Tarefa.js?d=@DateTime.Now.Ticks"></script>
+<script>
+    tarefa.init({
+        urls: {
+            getTarefas: '@Url.Action("GetTarefas", "Tarefa")',
+            index: '@Url.Action("Index", "Tarefa")'
+        }
+    });
+
+
+</script>

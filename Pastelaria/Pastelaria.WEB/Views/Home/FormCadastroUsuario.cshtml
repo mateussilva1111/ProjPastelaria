@@ -1,0 +1,65 @@
+﻿<div class="container">
+    <div role="tabpanel" class="tab-pane active" id="home">
+        <form onsubmit="login.cadastro(this); return false;">
+
+            <div class="form-group">
+                <label for="inputName">Codigo para seu usuario</label>
+                <input type="number" value="" class="form-control" id="Cod_Usuario" name="Cod_Usuario" required>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail">Nome</label>
+                <input type="text" class="form-control" id="Nome_Usuario" name="Nome_Usuario" placeholder="Nome" required>
+            </div>
+
+            <div class="form-group">
+                <label for="inputLastName">Data Nascimento</label>
+                <input type="date" class="form-control" id="Dat_Nascimento" name="Dat_Nascimento" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail">Telefone</label>
+                <input type="text" class="form-control" id="Num_TelFixo" name="Num_TelFixo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Celular</label>
+                <input type="text" class="form-control" id="Num_Celular" name="Num_Celular" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control" id="Email_Usuario" name="Email_Usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="Senha_Usuario" name="Senha_Usuario" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Foto</label>
+                <input type="text" class="form-control" id="Foto_usuario" name="Foto_usuario" required>
+            </div>
+
+            <button type="submit" class="btn btn-success">Registrar</button>
+        </form>
+    </div>
+</div>
+<div>
+    </br>
+</div>
+<script src="~/Lib/login.js?d=@DateTime.Now.Ticks"></script>
+<script>
+    login.init({
+        urls: {
+            postlogin: '@Url.Action("PostLogin", "Home")',
+            index: '@Url.Action("Index", "Tarefa")',
+            cadastro: '@Url.Action("Cadastro", "Home")'
+        }
+    });
+
+
+
+
+
+
+</script>

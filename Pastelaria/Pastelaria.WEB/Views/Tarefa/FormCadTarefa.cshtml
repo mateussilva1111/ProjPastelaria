@@ -1,0 +1,80 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="container" style="margin-top:40px;">
+    <form onsubmit="tarefa.postTarefa(this); return false;" id="formTarefa">
+
+        <div class="container">
+
+            <div class="form-group">
+                <label>Código da tarefa</label>
+               
+                <input type="text" value="" name="Cod_Tarefa" class="form-control" required>
+
+            </div>
+            <div class="form-group">
+                <label>nome da tarefa</label>
+                <input type="text" value="" name="nom_tarefa" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>descrição</label>
+                <input name="descr_tarefa" value="" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>status</label>
+                <input type="text" value="" name="Status_Tarefa" class="form-control" required>
+            </div>
+            <div>
+                <label>Desenvolvedor</label>
+                <select class="form-control" name="Num_Usuario" id="Num_Usuario"></select>
+
+            </div>
+
+            <div class="form-group">
+                <label>Gerente</label>
+                <select class="form-control" name="Num_Usuario_Gestor" id="Num_Usuario_Gestor"></select>
+
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Criar tarefa</button>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+
+
+<script src="~/Lib/FormUpdTarefa.js?d=@DateTime.Now.Ticks"></script>
+<script>
+    tarefa.init({
+        urls: {
+            putTarefa: '@Url.Action("PutTarefa", "Tarefa")',
+            postTarefa: '@Url.Action("PostTarefa", "Tarefa")'
+        }
+    });
+
+    $(document).ready(function () {
+        var listItems = '<option selected="selected" value="0"> selecione</option>';
+        $.get('@Url.Action("Users")').success(function (data) {
+            console.log(data);
+
+            for (var i = 0; i < data.length; i++) {
+                listItems += "<option value='" + data[i].Num_Usuario + "'>" + data[i].Nome_Usuario + "</option>";
+                $("#Num_Usuario").html(listItems);
+                $("#Num_Usuario_Gestor").html(listItems);
+            }
+        }).error(function (xhr) {
+            console.log("erro");
+        });
+    });
+</script>
+
+
+
+
+

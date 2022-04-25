@@ -1,0 +1,54 @@
+﻿
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div class="navbar navbar-inverse navbar-fixed-top">
+    @{
+        int user = (int)HttpContext.Current.Session["cargo"];
+    }
+
+    
+    <div class="container">
+        <div class="navbar-header">
+           
+            @Html.ActionLink("Pastelaria", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+                <li>@Html.ActionLink("Perfil", "Perfil", "Usuario")</li>
+                <li>@Html.ActionLink("Endereço", "Index", "Endereco")</li>
+                <li>@Html.ActionLink("Tarefa", "Index", "Tarefa")</li>
+
+                @if (user == 1) {
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configurações<span class="caret"></span> </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Usuarios", "ListaUsuarios", "Usuario")</li>
+                            <li>@Html.ActionLink("Cargos", "GetCargos", "Cargo")</li>
+                            <li>@Html.ActionLink("Tarefas", "GetTarefa", "Tarefa")</li>
+                        </ul>
+                </li>
+                }
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+<div class="container body-content">
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/plugins.js")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <hr/>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Pastelaria</p>
+    </footer>
+</div>
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+
+
+
+
