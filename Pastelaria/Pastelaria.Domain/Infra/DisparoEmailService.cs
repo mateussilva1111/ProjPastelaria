@@ -25,7 +25,7 @@ namespace Pastelaria.Domain.Infra
                 client.Port = 587;
 
                 client.UseDefaultCredentials = false;
-                client.Credentials = new System.Net.NetworkCredential("projeto.pastelaria@gmail.com", "projpast1100");
+                client.Credentials = new System.Net.NetworkCredential("projeto.pastelaria@gmail.com", "***********");
 
                 client.EnableSsl = true;
                 client.Send(mailMessage);
